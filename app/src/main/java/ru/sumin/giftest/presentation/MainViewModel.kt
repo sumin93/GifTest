@@ -1,6 +1,7 @@
 package ru.sumin.giftest.presentation
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,6 +20,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var lastPage = 0
 
     val screenState: LiveData<MainViewState> = screenStateMutableData
+
+    init {
+        Log.d("MainViewModel", "init")
+    }
 
     fun showNextGif() {
         val prevButtonEnabled = lastIndex > 0
@@ -49,7 +54,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (lastIndex - 2 >= 0) {
             screenStateMutableData.value = MainViewState.ShowState(
                 loadedGifs[lastIndex - 2],
-                --lastIndex > 0
+                --lastIndex > 1
             )
         }
     }
