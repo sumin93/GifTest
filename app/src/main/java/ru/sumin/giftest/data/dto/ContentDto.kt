@@ -2,55 +2,55 @@ package ru.sumin.giftest.data.dto
 
 import com.google.gson.annotations.SerializedName
 
-class ContentDto {
+data class ContentDto (
     @SerializedName("id")
-    val id = 0
+    val id: Int = 0,
 
     @SerializedName("description")
-    val description: String? = null
+    val description: String? = null,
 
     @SerializedName("votes")
-    val votes = 0
+    val votes: Int = 0,
 
     @SerializedName("author")
-    val author: String? = null
+    val author: String? = null,
 
     @SerializedName("date")
-    val date: String? = null
+    val date: String? = null,
 
     @SerializedName("gifURL")
-    val gifURL: String? = null
+    val gifURL: String? = null,
 
     @SerializedName("gifSize")
-    val gifSize = 0
+    val gifSize: Int = 0,
 
     @SerializedName("previewURL")
-    val previewURL: String? = null
+    val previewURL: String? = null,
 
     @SerializedName("videoURL")
-    val videoURL: String? = null
+    val videoURL: String? = null,
 
     @SerializedName("videoPath")
-    val videoPath: String? = null
+    val videoPath: String? = null,
 
     @SerializedName("videoSize")
-    val videoSize = 0
+    val videoSize: Int = 0,
 
     @SerializedName("type")
-    val type: String? = null
+    val type: String? = null,
 
     @SerializedName("width")
-    val width: String? = null
+    val width: String? = null,
 
     @SerializedName("height")
-    val height: String? = null
+    val height: String? = null,
 
     @SerializedName("commentsCount")
-    val commentsCount = 0
+    val commentsCount: Int = 0,
 
     @SerializedName("fileSize")
-    val fileSize = 0
+    val fileSize: Int = 0,
 
     @SerializedName("canVote")
-    val canVote = false
-}
+    val canVote: Boolean = false
+)
