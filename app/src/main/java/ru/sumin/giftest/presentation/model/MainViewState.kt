@@ -4,16 +4,16 @@ import ru.sumin.giftest.domain.entity.GifEntity
 
 sealed class MainViewState {
 
-    class ShowState(
+    data class ShowState(
         val gifToShow: GifEntity,
         val previousButtonEnabled: Boolean
     ) : MainViewState()
 
-    class ProgressState(
+    data class ProgressState(
         val previousButtonEnabled: Boolean
     ) : MainViewState()
 
-    class ErrorState(
+    data class ErrorState(
         val previousButtonEnabled: Boolean
     ) : MainViewState()
 }

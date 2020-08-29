@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun showNextGif() {
         val prevButtonEnabled = lastIndex > 0
-        screenStateMutableData.postValue(MainViewState.ProgressState(prevButtonEnabled))
+        screenStateMutableData.value = MainViewState.ProgressState(prevButtonEnabled)
         if (loadedGifs.size > lastIndex) {
             screenStateMutableData.value = MainViewState.ShowState(
                 loadedGifs[lastIndex++],
