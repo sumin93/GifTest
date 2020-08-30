@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GifTest</string>
+    <string name="button_next">Дальше</string>
+    <string name="button_prev">Назад</string>
+    <string name="error_message">Ошибка при загрузке...</string>
+    <string name="image_view_content_description">Gif</string>
 </resources>

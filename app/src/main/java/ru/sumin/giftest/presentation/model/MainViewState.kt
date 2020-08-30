@@ -2,19 +2,21 @@ package ru.sumin.giftest.presentation.model
 
 import ru.sumin.giftest.domain.entity.GifEntity
 
-sealed class MainViewState {
+sealed class MainViewState(
+    open val previousButtonEnabled: Boolean
+) {
 
     data class ShowState(
         val gifToShow: GifEntity,
-        val previousButtonEnabled: Boolean
-    ) : MainViewState()
+        override val previousButtonEnabled: Boolean
+    ) : MainViewState(previousButtonEnabled)
 
     data class ProgressState(
-        val previousButtonEnabled: Boolean
-    ) : MainViewState()
+        override val previousButtonEnabled: Boolean
+    ) : MainViewState(previousButtonEnabled)
 
     data class ErrorState(
-        val previousButtonEnabled: Boolean
-    ) : MainViewState()
+        override val previousButtonEnabled: Boolean
+    ) : MainViewState(previousButtonEnabled)
 }
 

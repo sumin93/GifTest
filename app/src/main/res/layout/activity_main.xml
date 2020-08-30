@@ -1,33 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.MainActivity"
-    >
+    tools:context=".presentation.MainActivity">
 
     <ImageView
         android:id="@+id/imageViewGif"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:contentDescription="@string/image_view_content_description"
         app:layout_constraintBottom_toTopOf="@id/buttonNext"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/viewProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/imageViewGif"
+        app:layout_constraintEnd_toEndOf="@id/imageViewGif"
+        app:layout_constraintStart_toStartOf="@id/imageViewGif"
+        app:layout_constraintTop_toTopOf="@id/imageViewGif" />
+
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/error_message"
+        app:layout_constraintBottom_toBottomOf="@id/imageViewGif"
+        app:layout_constraintEnd_toEndOf="@id/imageViewGif"
+        app:layout_constraintStart_toStartOf="@id/imageViewGif"
+        app:layout_constraintTop_toTopOf="@id/imageViewGif" />
+
+    <TextView
+        android:id="@+id/textViewGifDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/buttonNext" />
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ButtonNext"
+        android:text="@string/button_next"
         app:layout_constraintBottom_toTopOf="@id/buttonPrev" />
 
     <Button
         android:id="@+id/buttonPrev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ButtonPrev"
+        android:text="@string/button_prev"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

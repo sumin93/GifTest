@@ -22,7 +22,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val screenState: LiveData<MainViewState> = screenStateMutableData
 
     init {
-        Log.d("MainViewModel", "init")
+        showNextGif()
     }
 
     fun showNextGif() {
@@ -52,6 +52,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun showPreviousGif() {
         if (lastIndex - 2 >= 0) {
+            screenStateMutableData.value = MainViewState.ProgressState(
+                lastIndex - 2 > 0
+            )
             screenStateMutableData.value = MainViewState.ShowState(
                 loadedGifs[lastIndex - 2],
                 --lastIndex > 1
