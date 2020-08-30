@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.sumin.giftest.R
@@ -17,12 +17,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this).get(
-                MainViewModel::class.java
-        )
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.screenState.observe(this, Observer {
             when (it) {
-                is MainViewState.ShowState     -> {
+                is MainViewState.ShowState -> {
                     Log.d(LOG_TAG, "ShowState: $it")
                     Glide.with(this)
                         .load(it.gifToShow.gifURL)
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 is MainViewState.ProgressState -> {
                     Log.d(LOG_TAG, "ProgressState: $it")
                 }
-                is MainViewState.ErrorState    -> {
+                is MainViewState.ErrorState -> {
                     Log.d(LOG_TAG, "ErrorState: $it")
                 }
             }
